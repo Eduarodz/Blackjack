@@ -4,8 +4,8 @@ import random
 class Card:
     suits = ('Spades', 'Clubs', 'Hearts', 'Diamonds')
 
-    ranks = [('Ace', 1), ('Two', 2), ('Three', 3), ('Four', 4), ('Five', 5), ('Six', 6), ('Seven', 7), ('Eight', 8),
-             ('Nine', 9), ('Ten', 10), ('Jack', 10), ('Queen', 10), ('King', 10)]
+    ranks = [('Ace', 1), ('Two', 2), ('Three', 3), ('Four', 4), ('Five', 5), ('Six', 6), ('Seven', 7),
+             ('Eight', 8), ('Nine', 9), ('Ten', 10), ('Jack', 10), ('Queen', 10), ('King', 10)]
 
     def __init__(self, suit, rank):
         self.suit = suit
@@ -21,28 +21,19 @@ class NewDeck:
     def __init__(self, decks=1):
         self.deck = []
         for deck_num in range(0, decks):
-            self.deck.append(self.add_deck())
+            self.add_deck()
         self.shuffle()
 
-    @staticmethod
-    def add_deck():
-        deck = []
+    def add_deck(self):
         for suit in Card.suits:
             for rank in Card.ranks:
-                deck.append(Card(suit, rank))
-        return deck
+                self.deck.append(Card(suit, rank))
 
     def shuffle(self, times=5):
         for i in range(0, times):
             random.shuffle(self.deck)
 
     def pop_card(self):
-        if len(self.deck) <= 52 * 3:
-            for deck_num in range(0, 5):
-                for suit in Card.suits:
-                    for rank in Card.ranks:
-                        card = [Card(suit, rank)]
-                        self.deck.append(card)
         return self.deck.pop(-1)
 
     def __str__(self):
