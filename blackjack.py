@@ -1,5 +1,5 @@
-from blackjack_classes import*
-from blackjack_functions import*
+from classes import*
+from funcs import*
 
 deck = NewDeck(8)
 

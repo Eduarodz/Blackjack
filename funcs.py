@@ -58,7 +58,7 @@ def double_down(player, dealer, deck):
         play = stand(player, dealer, deck)
         return play
     else:
-        print('Balance not available...\n')
+        print('Balance not available...')
         return True
 
 
